@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<script src='sb-1.5.0.js'></script>
+<style>
+span{
+	font-size:100px;
+		position:absolute;
+			width:100px;
+				height:100px;
+					opacity:.4;
+}
+			div{
+				position:absolute;
+					width:100px;
+						height:100px;
+			}
+</style>
+	</head>
+	<body>
+		<span style='color:red;'>^</span>
+		<span style='color:red;'>^</span>
+		<div style='transform:rotate(60deg);'>
+		<span style='color:green;'>^</span>
+		<span style='color:green;'>^</span>
+		</div>
+		<div style='transform:rotate(120deg);'>
+		<span style='color:blue;'>^</span>
+		<span style='color:blue;'>^</span>
+		</div>
+	<script>
+		var hrs = document.getElementsByTagName('span');
+		var client = new Spacebrew.Client('localhost', 'web_viz');
+		client.addSubscribe('red', 'range');
+		client.addSubscribe('green', 'range');
+		client.addSubscribe('blue', 'range');
+		client.onRangeMessage = gotRange;
+		client.connect();
+
+		function gotRange(name, value){
+			var angle = value / 1023 * 180;
+			switch (name){
+				case 'red':
+					hrs[0].style.transform = 'rotate(' + angle + 'deg)';
+					hrs[1].style.transform = 'rotate(-' + angle + 'deg)';
+					break;
+				case 'green':
+					hrs[2].style.transform = 'rotate(' + angle + 'deg)';
+					hrs[3].style.transform = 'rotate(-' + angle + 'deg)';
+					break;
+				case 'blue':
+					hrs[4].style.transform = 'rotate(' + angle + 'deg)';
+					hrs[5].style.transform = 'rotate(-' + angle + 'deg)';
+					break;
+			}
+			console.log(name + ":" + value + " -> " + angle);
+		}
+	</script>
+	</body>
+</html>
