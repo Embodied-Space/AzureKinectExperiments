@@ -37,6 +37,17 @@ I am proposing an interactive installation where the primary interaction is clap
 
 As people add to the 'track', older samples will be dropped. If nobody is interacting with the track, previous sequences can fade in and out as the installation "dreams."
 
+![installation view][im1]
+
+This installation view shows an arrangement with:
+
+* an upside-down kinect mounted in the top center of the space
+* a mirror redirecting the depth camera to see the floor to allow for depth-assisted clapper locating
+* a moving mirror lights to highlight the identified clapper
+* speakers in the grid
+* LED panels scattered around the walls and in the floor which will additionally react based on the spatialized sound and activate the space with ambient content.
+
 
 [0]: https://github.com/Embodied-Space/AzureKinectExperiments/wiki/Dev-Setup
 [im0]: ../ref/sound-source-01a.png
+[im1]: ../ref/installation%20view.jpg
