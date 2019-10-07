@@ -49,5 +49,5 @@ This installation view shows an arrangement with:
 
 
 [0]: https://github.com/Embodied-Space/AzureKinectExperiments/wiki/Dev-Setup
-[im0]: ../ref/sound-source-01a.png
-[im1]: ../ref/installation%20view.jpg
+[im0]: images/sound-source-01a.png
+[im1]: images/installation-view.jpg
