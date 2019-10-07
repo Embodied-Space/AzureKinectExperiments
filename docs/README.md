@@ -15,10 +15,13 @@ I wanted to prove out that the Kinect microphone array was accessible enough
 and high-quality enough to be able to support this use-case without getting 
 into the weeds on implementing or compiling research-grade projects. 
 
+![visualization][im0]
+*This shows a clap coming almost directly from the right side of the kinect*
+
 This prototype uses Python to analyze the microphone channels and calculate 
 the directionality of sound sources. That direction is published over 
 Spacebrew to allow for flexibility in the visualization side. 
-I put together a simple web visualizer to show the direction relative to the 
+I put together a simple web visualizer (shown above) to display the direction relative to the 
 Azure Kinect in both plan and azimuth view.
 
 See the [Github Wiki][0] for details on setting up the prototype.
@@ -36,3 +39,4 @@ As people add to the 'track', older samples will be dropped. If nobody is intera
 
 
 [0]: https://github.com/Embodied-Space/AzureKinectExperiments/wiki/Dev-Setup
+[im0]: ../ref/sound-source-01a.png
