@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<script src='sb-1.5.0.js'></script>
+		<script src='p5.js'></script>
 <style>
 span{
 	font-size:100px;
@@ -33,8 +34,19 @@ span{
 		client.addSubscribe('red', 'range');
 		client.addSubscribe('green', 'range');
 		client.addSubscribe('blue', 'range');
+client.addSubscribe('vector', 'vector3');
 		client.onRangeMessage = gotRange;
+client.onCustomMessage = gotCustom;
 		client.connect();
+var position = [0,0,0];
+var cam;
+
+function gotCustom(name, value){
+	if (name == 'vector'){
+		position = value;
+		console.log(position);
+	}
+}
 
 		function gotRange(name, value){
 			var angle = value / 1023 * 180;
@@ -54,6 +66,39 @@ span{
 			}
 			console.log(name + ":" + value + " -> " + angle);
 		}
+
+function preload(){
+	cam = loadImage('cam_top.png');
+}
+
+		function setup(){
+			createCanvas(800, 400);
+		}
+
+function draw(){
+	background(100, 150, 200);
+	var w = 286;
+	var h = 346;
+	var cx = w/2;
+	var cy = h-cx+19;
+	var cr = 110;
+	//draw the device wireframe
+	blendMode(MULTIPLY);
+	image(cam, 0, 0);
+	blendMode(BLEND);
+	//draw the source vector area
+	stroke(70);
+	noFill();
+	ellipse(cx, cy, cr*2, cr*2);
+	arc(600, 200, cr*2, cr*2, PI, TWO_PI);
+	line(600-cr, 200, 600+cr, 200);
+	//draw the received source data
+	fill(0);
+	noStroke();
+	ellipse(cx+position[0]*cr, cy-position[1]*cr, 10, 10);
+	var xymag = Math.sqrt(position[0]*position[0]+position[1]*position[1]);
+	ellipse(600+xymag*cr, 200-position[2]*cr, 10, 10);
+}
 	</script>
 	</body>
 </html>
