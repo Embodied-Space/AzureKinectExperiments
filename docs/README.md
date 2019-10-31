@@ -1,5 +1,8 @@
 # Spacey Clapper
 
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/369975776" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<p><a href="https://vimeo.com/369975776">Audio Localization Demo</a> from <a href="https://vimeo.com/quinkennedy">quin kennedy</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+
 ## Azure Kinect Features
 
 The Azure Kinect is a very capable little device. I have lots of experience using previous Kinect devices for scene segmentation, gestureal interfaces, skeleton tracking, point cloud rendering and so much more. A lot of those features are quicker, higher resolution, more robust, and in a smaller package for this iteration. 
